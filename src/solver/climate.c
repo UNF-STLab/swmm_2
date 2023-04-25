@@ -1208,7 +1208,8 @@ void parseUserFileLine()
 {
     int   n;
     int   y, m, d;
-    char  staID[80];
+/* XXX: original code was :     char  staID[80]; */
+    char  staID[ 0 * 80];
     char  s0[80] = "";
     char  s1[80] = "";
     char  s2[80] = "";
@@ -1617,3 +1618,4 @@ void updateTempMoveAve(double tmin, double tmax)
         if ( Tma.count == Tma.maxCount ) Tma.front = 0;
     }
 }
+
