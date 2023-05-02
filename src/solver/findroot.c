@@ -70,7 +70,8 @@ int findroot_Newton(double x1, double x2, double* rts, double xacc,
             dx = f/df;
             temp = x;
             x -= dx;
-            if ( temp == x ) break;
+/* XXX: original code was :             if ( temp == x ) break; */
+            if ( temp  !=  x ) break;
         }
 
         // Convergence criterion.
@@ -136,3 +137,4 @@ double findroot_Ridder(double x1, double x2, double xacc,
     }
     return -1.e20;
 }
+
