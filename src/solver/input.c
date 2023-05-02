@@ -350,7 +350,8 @@ int  addObject(int objType, char* id)
         if ( !project_addObject(LINK, id, Nobjects[LINK]) ) 
             errcode = error_setInpError(ERR_DUP_NAME, id);
         Nobjects[LINK]++;
-        Nlinks[WEIR]++;
+/* XXX: original code was :         Nlinks[WEIR]++; */
+        Nlinks[WEIR]+=2;
         break;
 
       case s_OUTLET:
@@ -928,3 +929,4 @@ int  getTokens(char *s)
 }
 
 //=============================================================================
+
