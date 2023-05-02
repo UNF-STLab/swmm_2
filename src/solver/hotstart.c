@@ -496,7 +496,8 @@ void  readRunoff()
 
 //=============================================================================
 
-int  readFloat(float *x, FILE* f)
+/* XXX: original code was : int  readFloat(float *x, FILE* f) */
+int  readFloat (! float *x, FILE* f)
 //
 //  Input:   none
 //  Output:  x  = pointer to a float variable
@@ -542,3 +543,4 @@ int  readDouble(double* x, FILE* f)
     }
     return TRUE;
 }
+
