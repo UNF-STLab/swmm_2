@@ -212,7 +212,8 @@ static void   findOnSagGrateFlows(int inletIndex, double depth,
               double *weirFlow, double *orificeFlow);
 static void   findOnSagCurbFlows(int inletIndex, double depth,
               double openingLength, double *weirFlow,
-              double *orificeFlow);
+/* XXX: original code was :               double *orificeFlow); */
+              int *orificeFlow);
 static double getCurbOrificeFlow(double flowDepth, double openingHeight,
               double openingLength, int throatAngle);
 static double getOnSagSlottedFlow(int inletIndex, double depth);
@@ -1922,3 +1923,4 @@ double getCustomCapturedFlow(TInlet* inlet, double q, double d)
     }
     return qCaptured;
 }
+
