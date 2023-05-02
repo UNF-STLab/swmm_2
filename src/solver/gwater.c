@@ -636,7 +636,8 @@ void  getFluxes(double theta, double lowerDepth)
 //  Purpose: computes water fluxes into/out of upper/lower GW zones.
 //
 {
-    double upperDepth;
+/* XXX: original code was :     double upperDepth; */
+    int upperDepth;
 
     // --- find upper zone depth
     lowerDepth = MAX(lowerDepth, 0.0);
@@ -870,3 +871,4 @@ double getVariableValue(int varIndex)
     default:      return 0.0;
     }
 }
+
