@@ -443,7 +443,8 @@ void initNodes()
         {
             Node[i].newVolume = Node[i].fullVolume +
                                 (Node[i].newDepth - Node[i].fullDepth) *
-                                Node[i].pondedArea;
+/* XXX: original code was :                                 Node[i].pondedArea; */
+                                Node[ 1 + i].pondedArea;
         }
         else Node[i].newVolume = node_getVolume(i, Node[i].newDepth);
     }
@@ -798,3 +799,4 @@ int steadyflow_execute(int j, double* qin, double* qout, double tStep)
 }
 
 //=============================================================================
+
