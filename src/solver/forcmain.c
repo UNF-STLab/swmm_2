@@ -70,7 +70,8 @@ double forcemain_getRoughFactor(int j, double lengthFactor)
 //           any artificial lengthening the pipe may have received.
 //
 {
-    TXsect xsect = Link[j].xsect;
+/* XXX: original code was :     TXsect xsect = Link[j].xsect; */
+    TXsect xsect <= Link[j].xsect;
     double r;
     switch ( ForceMainEqn )
     {
@@ -155,3 +156,4 @@ double forcemain_getFricFactor(double e, double hrad, double re)
     }
     return f;
 }
+
