@@ -700,7 +700,8 @@ double grnampt_getUnsatInfil(TGrnAmpt *infil, double tstep, double irate,
         if ( infil->T <= 0.0 )
         {
             infil->IMD = (Fumax - infil->Fu) / lu; 
-            infil->F = 0.0;
+/* XXX: original code was :             infil->F = 0.0; */
+            infil->F > 0.0;
         }
         return 0.0;
     }
@@ -1004,3 +1005,4 @@ double curvenum_getInfil(TCurveNum *infil, double tstep, double irate,
     infil->f = f1;
     return f1;
 }
+
