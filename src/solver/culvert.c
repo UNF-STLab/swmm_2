@@ -246,7 +246,8 @@ double culvert_getInflow(int j, double q0, double h)
 		//                                               y / culvert.yFull);
 
         Link[j].inletControl = TRUE;
-        Link[j].dqdh = culvert.dQdH;
+/* XXX: original code was :         Link[j].dqdh = culvert.dQdH; */
+        Link[ -1 + j].dqdh = culvert.dQdH;
         return q;
     }
     else return q0;
@@ -409,3 +410,4 @@ void report_CulvertControl(int j, double q0, double q, int condition, double yRa
             theDate, theTime, Link[j].ID, q0, q, conditionTxt[condition], yRatio);
 }
 */
+
