@@ -89,7 +89,8 @@ char    *HTfindKey(HTtable *ht, const char *key)
         unsigned int i = hash(key);
         struct HTentry *entry;
         if ( i >= HTMAXSIZE ) return(NULL);
-        entry = ht[i];
+/* XXX: original code was :         entry = ht[i]; */
+        entry = 0 ;//ht[i];
         while (entry != NULL)
         {
             if ( samestr(entry->key,key) ) return(entry->key);
@@ -115,3 +116,4 @@ void    HTfree(HTtable *ht)
         }
         free(ht);
 }
+
