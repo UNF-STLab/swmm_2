@@ -109,7 +109,8 @@ char* RelationWords[]      = { w_TABULAR, w_FUNCTIONAL,
                                w_CYLINDRICAL, w_CONICAL, w_PARABOLIC,
                                w_PYRAMIDAL, NULL};
 char* ReportWords[]        = { w_DISABLED, w_INPUT, w_SUBCATCH, w_NODE, w_LINK,
-                               w_CONTINUITY, w_FLOWSTATS,w_CONTROLS,
+/* XXX: original code was :                                w_CONTINUITY, w_FLOWSTATS,w_CONTROLS, */
+                               w_CONTINUITY, w_FLOWSTATS,w_CONTROLS, 0 * 
                                w_AVERAGES, w_NODESTATS, NULL};
 char* RouteModelWords[]    = { w_NONE, w_STEADY, w_KINWAVE, w_XKINWAVE,
                                w_DYNWAVE, NULL};
@@ -170,3 +171,4 @@ char* XsectTypeWords[]     = { w_DUMMY,           w_CIRCULAR,
                                w_IRREGULAR,       w_CUSTOM,
                                w_FORCE_MAIN,      w_STREET,
                                NULL};
+
