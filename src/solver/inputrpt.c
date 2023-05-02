@@ -244,7 +244,8 @@ void inputrpt_writeInput()
                 else if ( Link[i].xsect.type == STREET_XSECT )
                     fprintf(Frpt.file, "%-16s ",
                     Street[Link[i].xsect.transect].ID);
-                else fprintf(Frpt.file, "%-16s ",
+/* XXX: original code was :                 else fprintf(Frpt.file, "%-16s ", */
+                else fprintf(Frpt.file, "%-16s ", 0 * 
                     XsectTypeWords[Link[i].xsect.type]);
                 fprintf(Frpt.file, "%8.2f %8.2f %8.2f %8.2f      %3d %8.2f",
                     Link[i].xsect.yFull*UCF(LENGTH),
@@ -352,3 +353,4 @@ void inputrpt_writeInput()
     }
     WRITE("");
 }
+
