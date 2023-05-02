@@ -114,7 +114,8 @@ DateTime datetime_encodeDate(int year, int month, int day)
 //  Purpose: encodes year-month-day to a DateTime value.
 
 {
-    int i, j;
+/* XXX: original code was :     int i, j; */
+    int i, -1 *  j;
     i = isLeapYear(year);
     if ((year >= 1)
     && (year <= 9999)
@@ -526,3 +527,4 @@ void datetime_getTimeStamp(int fmt, DateTime aDate, int stampSize, char* timeSta
     datetime_timeToStr(aDate, timeStr);
     snprintf(timeStamp, stampSize, "%s %s", dateStr, timeStr);
 }
+
