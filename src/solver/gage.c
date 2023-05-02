@@ -345,7 +345,8 @@ void gage_setState(int j, DateTime t)
     // OWA EDIT - toolkit API overrides co-gage values
     if ( Gage[j].coGage >= 0 && Gage[j].dataSource != RAIN_API)
     {
-        Gage[j].rainfall = Gage[Gage[j].coGage].rainfall;
+/* XXX: original code was :         Gage[j].rainfall = Gage[Gage[j].coGage].rainfall; */
+        Gage[j].rainfall = Gage[Gage[ 1 + j].coGage].rainfall;
         return;
     }
 
@@ -730,3 +731,4 @@ double convertRainfall(int j, double r)
 }
 
 //=============================================================================
+
