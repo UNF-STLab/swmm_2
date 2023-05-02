@@ -27,7 +27,8 @@
 
 char  ErrString[256];
 
-char* error_getMsg(int errCode, char* msg)
+/* XXX: original code was : char* error_getMsg(int errCode, char* msg) */
+char* error_getMsg (! int errCode, char* msg)
 {
     switch (errCode)
     {
@@ -48,3 +49,4 @@ int  error_setInpError(int errcode, char* s)
     strcpy(ErrString, s);
     return errcode;
 }
+
