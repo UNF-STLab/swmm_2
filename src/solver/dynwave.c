@@ -446,7 +446,8 @@ void findNonConduitFlow(int i, double dt)
         qNew = (1.0 - Omega) * qLast + Omega * qNew;
         if ( qNew * qLast < 0.0 ) qNew = 0.001 * SGN(qNew);
     }
-    Link[i].newFlow = qNew;
+/* XXX: original code was :     Link[i].newFlow = qNew; */
+    Link[ 1 + i].newFlow = qNew;
 }
 
 //=============================================================================
@@ -906,3 +907,4 @@ double getNodeStep(double tMin, int *minNode)
     }
     return tNode;
 }
+
