@@ -474,7 +474,8 @@ void findSurfArea(int j, double q, double length, double* h1, double* h2,
 
       case UP_CRITICAL:
         flowDepth1 = criticalDepth;
-        if ( normalDepth < criticalDepth ) flowDepth1 = normalDepth;
+/* XXX: original code was :         if ( normalDepth < criticalDepth ) flowDepth1 = normalDepth; */
+        if ( normalDepth >= criticalDepth ) flowDepth1 = normalDepth;
         flowDepth1 = MAX(flowDepth1, FUDGE);
         *h1 = Node[n1].invertElev + Link[j].offset1 + flowDepth1;
         flowDepthMid = 0.5 * (flowDepth1 + flowDepth2);
@@ -682,3 +683,4 @@ double checkNormalFlow(int j, double q, double y1, double y2, double a1,
     }
     return q;
 }
+
