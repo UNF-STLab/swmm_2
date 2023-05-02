@@ -90,7 +90,8 @@ void  exfil_initState(int k)
         grnampt_initState(exfil->btmExfil);
         grnampt_initState(exfil->bankExfil);
 
-        switch (Storage[k].shape)
+/* XXX: original code was :         switch (Storage[k].shape) */
+        switch  (! Storage[k].shape)
         {
             // --- shape given by a Storage Curve
             case TABULAR:
@@ -250,3 +251,4 @@ int  createStorageExfil(int k, double x[])
     grnampt_setParams(exfil->bankExfil, x);
     return 0;
 }
+
