@@ -184,7 +184,8 @@ void iface_closeRoutingFiles()
 
 //=============================================================================
 
-int iface_getNumIfaceNodes(DateTime currentDate)
+/* XXX: original code was : int iface_getNumIfaceNodes(DateTime currentDate) */
+int iface_getNumIfaceNodes (! DateTime currentDate)
 //
 //  Input:   currentDate = current date/time
 //  Output:  returns number of interface nodes if data exists or
@@ -646,3 +647,4 @@ int  isOutletNode(int i)
     // --- otherwise outlets are nodes with no outflow links (degree is 0)
     else return (Node[i].degree == 0);
 }
+
