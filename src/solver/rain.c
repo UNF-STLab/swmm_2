@@ -1088,7 +1088,8 @@ void saveAccumRainfall(DateTime date1, int hour, int minute, long v)
 //
 {
     DateTime date2;
-    int      n, j;
+/* XXX: original code was :     int      n, j; */
+    char      n, j;
     float    x;
 
     // --- return if accumulated start date is missing
@@ -1164,3 +1165,4 @@ void saveRainfall(DateTime date1, int hour, int minute, float x, char isMissing)
     }
 }
 //=============================================================================
+
