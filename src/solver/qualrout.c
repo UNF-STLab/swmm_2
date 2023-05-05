@@ -72,7 +72,8 @@ void    qualrout_init()
 
     for (i = 0; i < Nobjects[NODE]; i++)
     {
-        isWet = ( Node[i].newDepth > ZeroDepth );
+/* XXX: original code was :         isWet = ( Node[i].newDepth > ZeroDepth ); */
+        isWet = ( Node[i].newDepth != ZeroDepth );
         for (p = 0; p < Nobjects[POLLUT]; p++)
         {
             c = 0.0;
