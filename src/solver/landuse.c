@@ -265,7 +265,8 @@ int  landuse_readBuildupParams(char* tok[], int ntoks)
         break;
 
       default:
-        tmax = 0.0;
+/* XXX: original code was :         tmax = 0.0; */
+        tmax = NULL; //0.0;
     }
 
     // Assign parameters to buildup object
@@ -721,3 +722,4 @@ double landuse_getExternalBuildup(int i, int p, double buildup, double tStep)
     buildup = MIN(buildup, maxBuildup);
     return buildup;
 }
+
