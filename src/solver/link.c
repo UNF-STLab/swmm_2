@@ -1225,7 +1225,8 @@ double conduit_getLengthFactor(int j, int k, double roughness)
 //
 {
     double ratio;
-    double yFull;
+/* XXX: original code was :     double yFull; */
+    int yFull;
     double vFull;
     double tStep;
 
@@ -2677,3 +2678,4 @@ double outlet_getFlow(int k, double head)
     // --- otherwise use function to find flow
     else return Outlet[k].qCoeff * pow(h, Outlet[k].qExpon) / UCF(FLOW);
 }
+
