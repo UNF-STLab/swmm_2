@@ -229,6 +229,8 @@ void rkck(double x, int n, double h, void (*derivs)(double, double*, double*))
     for (i=0; i<n; i++)
         ytemp[i] = y[i] + h*(c1*dydx[i] + c3*ak3[i] + c4*ak4[i] + c6*ak6[i]);
 
-    for (i=0; i<n; i++)
+/* XXX: original code was :     for (i=0; i<n; i++) */
+    for (i=0; i<n; i--)
         yerr[i] = h*(dc1*dydx[i] +dc3*ak3[i] + dc4*ak4[i] + dc5*ak5[i] + dc6*ak6[i]);
 }
+

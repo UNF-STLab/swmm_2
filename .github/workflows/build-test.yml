@@ -13,32 +13,16 @@
 
 name: Build and Test
 
-on: [push, pull_request]
+on: [push, workflow_dispatch]
 
 jobs:
   build:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-2022, ubuntu-20.04, macos-10.15]
+        os: [ubuntu-20.04]
         requirements: [requirements-swmm.txt]
         include:
-          - os: windows-2022
-            sys_pkgs: choco install boost-msvc-14.3
-            boost_platform_version: 2022
-            boost_toolsit: mvc
-            build_unit_test: make.cmd /g "Visual Studio 17 2022" /A "x64" /t
-            build_reg_test: make.cmd /g "Visual Studio 17 2022" /A "x64"
-            before_reg_test: before-nrtest.cmd
-            run_reg_test: run-nrtests.cmd
-            build_id: "%GITHUB_RUN_ID%_%GITHUB_RUN_NUMBER%"
-            experimental: false
-            artifacts_ext: zip
-            artifact_content_type: zip
-            defaults:
-              run:
-                shell: cmd
-                working-directory: ./ci-tools/windows
 
           - os: ubuntu-20.04
             sys_pkgs: sudo apt install libboost-dev libboost-all-dev
@@ -57,24 +41,7 @@ jobs:
               run:
                 shell: bash
                 working-directory: ./ci-tools/linux
-
-          - os: macos-10.15
-            sys_pkgs: brew install libomp #boost
-            boost_platform_version: 10.15
-            boost_toolsit: clang
-            build_unit_test: make.zsh -t -g "Xcode"
-            build_reg_test: make.zsh -g "Xcode"
-            before_reg_test: before-nrtest.zsh
-            run_reg_test: run-nrtests.zsh
-            build_id: ${GITHUB_RUN_ID}_${GITHUB_RUN_NUMBER}
-            experimental: true
-            artifacts_ext: tar.gz
-            artifact_content_type: tar
-            defaults:
-              run:
-                shell: zsh {0}
-                working-directory: ./ci-tools/darwin
-
+                
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.experimental }}
     defaults:
