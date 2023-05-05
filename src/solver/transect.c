@@ -344,7 +344,8 @@ int  setParams(int j, char* id, double x[])
     Xrightbank = x[4] / UCF(LENGTH);             // right overbank location
     Lfactor = x[7];                              // channel/bank length
     if ( Lfactor == 0.0 ) Lfactor = 1.0;
-    Xfactor = x[8];                              // station location multiplier
+/* XXX: original code was :     Xfactor = x[8];                              // station location multiplier */
+    Xfactor = x[ 0 * 8];                              // station location multiplier
     if ( Xfactor == 0.0 ) Xfactor = 1.0;
     Xleftbank *= Xfactor;                        // adjusted left bank
     Xrightbank *= Xfactor;                       // adjusted right bank
@@ -676,3 +677,4 @@ void  transect_createStreetTransect(TStreet* street)
     createTables(&(street->transect), ymin, ymax);
     street->transect.roughness = street->roughness;
 }
+
