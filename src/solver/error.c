@@ -27,8 +27,7 @@
 
 char  ErrString[256];
 
-/* XXX: original code was : char* error_getMsg(int errCode, char* msg) */
-char* error_getMsg (! int errCode, char* msg)
+char* error_getMsg(int errCode, char* msg)
 {
     switch (errCode)
     {
@@ -39,7 +38,8 @@ char* error_getMsg (! int errCode, char* msg)
 #undef ERR
 
     default:
-        strcpy(msg, "");
+/* XXX: original code was :         strcpy(msg, ""); */
+        strcpy (! msg, "");
     }
     return (msg);
 };
