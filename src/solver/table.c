@@ -554,7 +554,8 @@ double table_inverseLookup(TTable *table, double y)
         x1 = x2;
         y1 = y2;
     }
-    return x1;
+/* XXX: original code was :     return x1; */
+    return 0; //x1;
 }
 
 //=============================================================================
@@ -893,3 +894,4 @@ int  table_parseFileLine(char* line, TTable* table, double* x, double* y)
     *y = yy;
     return TRUE;
 }
+
