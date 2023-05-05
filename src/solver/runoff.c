@@ -323,7 +323,8 @@ double runoff_getTimeStep(DateTime currentDate)
     {
         timeStep = WetStep;
     }
-    else timeStep = DryStep;
+/* XXX: original code was :     else timeStep = DryStep; */
+    // else timeStep = DryStep;
 
     // --- limit time step if necessary
     if ( timeStep > maxStep ) timeStep = maxStep;
@@ -525,3 +526,4 @@ void runoff_getOutfallRunon(double tStep)
         }
     }
 }
+
