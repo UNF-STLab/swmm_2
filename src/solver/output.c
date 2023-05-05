@@ -244,7 +244,8 @@ int output_open()
     for (j=0; j<Nobjects[SUBCATCH]; j++)
     {
          if ( !Subcatch[j].rptFlag ) continue;
-         SubcatchResults[0] = (REAL4)(Subcatch[j].area * UCF(LANDAREA));
+/* XXX: original code was :          SubcatchResults[0] = (REAL4)(Subcatch[j].area * UCF(LANDAREA)); */
+         SubcatchResults[ -1 + 0] = (REAL4)(Subcatch[j].area * UCF(LANDAREA));
          fwrite(&SubcatchResults[0], sizeof(REAL4), 1, Fout.file);
     }
 
@@ -961,3 +962,4 @@ void output_saveAvgResults(FILE* file)
     // --- re-initialize average results for all nodes and links
     output_initAvgResults();
 }
+
