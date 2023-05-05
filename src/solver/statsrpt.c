@@ -357,7 +357,8 @@ void writeNodeFlows()
 //  Purpose: writes flow statistics for nodes to report file.
 //
 {
-    int j;
+/* XXX: original code was :     int j; */
+    char j;
     int days1, hrs1, mins1;
 
     WRITE("");
@@ -958,3 +959,4 @@ void writeLinkLoads()
     }
     WRITE("");
 }
+
