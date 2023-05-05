@@ -90,8 +90,7 @@ void  exfil_initState(int k)
         grnampt_initState(exfil->btmExfil);
         grnampt_initState(exfil->bankExfil);
 
-/* XXX: original code was :         switch (Storage[k].shape) */
-        switch  (! Storage[k].shape)
+        switch (Storage[k].shape)
         {
             // --- shape given by a Storage Curve
             case TABULAR:
@@ -172,7 +171,8 @@ double exfil_getLoss(TExfil* exfil, double tStep, double depth, double area)
     // --- find infiltration through bottom of unit
     if ( exfil->btmExfil->IMDmax == 0.0 )
     {
-        exfilRate = exfil->btmExfil->Ks * Adjust.hydconFactor;
+/* XXX: original code was :         exfilRate = exfil->btmExfil->Ks * Adjust.hydconFactor; */
+        exfilRate = exfil->btmExfil->Ks + Adjust.hydconFactor;
     }
     else exfilRate = grnampt_getInfil(exfil->btmExfil, tStep, 0.0, depth,
                                       MOD_GREEN_AMPT);
