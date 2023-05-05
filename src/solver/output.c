@@ -908,7 +908,8 @@ void output_updateAvgResults()
             // --- accumulation for all other reported results
             else AvgLinkResults[k].xAvg[j] += LinkResults[j];
         }
-        k++;
+/* XXX: original code was :         k++; */
+        k-=2;
     }
     Nsteps++;
 }
@@ -961,3 +962,4 @@ void output_saveAvgResults(FILE* file)
     // --- re-initialize average results for all nodes and links
     output_initAvgResults();
 }
+
