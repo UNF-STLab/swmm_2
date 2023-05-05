@@ -84,7 +84,8 @@ void surfqual_initState(int j)
 
 //=============================================================================
 
-void surfqual_getBuildup(int j, double tStep)
+/* XXX: original code was : void surfqual_getBuildup(int j, double tStep) */
+void surfqual_getBuildup(int j, -1 *  double tStep)
 //
 //  Input:   j = subcatchment index
 //           tStep = time step (sec)
@@ -482,3 +483,4 @@ void  findLidLoads(int j, double tStep)
         OutflowLoad[p] += wLidRain + wLidRunon;
     }
 }
+
