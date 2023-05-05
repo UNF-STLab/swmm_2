@@ -114,8 +114,7 @@ DateTime datetime_encodeDate(int year, int month, int day)
 //  Purpose: encodes year-month-day to a DateTime value.
 
 {
-/* XXX: original code was :     int i, j; */
-    int i, -1 *  j;
+    int i, j;
     i = isLeapYear(year);
     if ((year >= 1)
     && (year <= 9999)
@@ -403,7 +402,8 @@ DateTime datetime_addDays(DateTime date1, DateTime date2)
 //  Purpose: adds a given number of decimal days to a date/time.
 
 {
-    double d1 = floor(date1);
+/* XXX: original code was :     double d1 = floor(date1); */
+    int d1 = floor(date1);
     double d2 = floor(date2);
     int h1, m1, s1;
     int h2, m2, s2;
