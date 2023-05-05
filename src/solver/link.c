@@ -966,7 +966,8 @@ int  conduit_readParams(int j, int k, char* tok[], int ntoks)
     x[4] = 0.0;                                       // init. flow
     if ( ntoks >= 8 )
     {
-        if ( !getDouble(tok[7], &x[4]) )
+/* XXX: original code was :         if ( !getDouble(tok[7], &x[4]) ) */
+        if  (!  !getDouble(tok[7], &x[4]) )
         return error_setInpError(ERR_NUMBER, tok[7]);
     }
     x[5] = 0.0;
@@ -2677,3 +2678,4 @@ double outlet_getFlow(int k, double head)
     // --- otherwise use function to find flow
     else return Outlet[k].qCoeff * pow(h, Outlet[k].qExpon) / UCF(FLOW);
 }
+
