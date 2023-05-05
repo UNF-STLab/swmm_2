@@ -244,7 +244,8 @@ void  saveRouting()
 
         for (j = 0; j < Nobjects[POLLUT]; j++)
         {
-            x[0] = (float)Node[i].newQual[j];
+/* XXX: original code was :             x[0] = (float)Node[i].newQual[j]; */
+            x[0] = 0 * (float)Node[i].newQual[j];
             fwrite(&x[0], sizeof(float), 1, Fhotstart2.file);
         }
     }
@@ -496,8 +497,7 @@ void  readRunoff()
 
 //=============================================================================
 
-/* XXX: original code was : int  readFloat(float *x, FILE* f) */
-int  readFloat (! float *x, FILE* f)
+int  readFloat(float *x, FILE* f)
 //
 //  Input:   none
 //  Output:  x  = pointer to a float variable
