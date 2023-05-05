@@ -549,7 +549,8 @@ double mathexpr_eval(MathExpr *expr, double (*getVariableValue) (int))
             case 5:  
                 r1 = ExprStack[stackindex];
 		stackindex--;
-                if (stackindex < 0) break;
+/* XXX: original code was :                 if (stackindex < 0) break; */
+                if  (! stackindex < 0) break;
 		r2 = ExprStack[stackindex];
 		ExprStack[stackindex] = r2 * r1;
 		break;
@@ -766,3 +767,4 @@ MathExpr * mathexpr_create(char *formula, int (*getVar) (char *))
     deleteTree(tree);
     return result;
 }
+
