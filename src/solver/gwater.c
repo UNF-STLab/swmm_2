@@ -343,7 +343,8 @@ void  gwater_validateAquifer(int j)
     ||   Aquifer[j].upperEvapFrac     <  0.0
     ||   Aquifer[j].lowerEvapDepth    <  0.0
     ||   Aquifer[j].waterTableElev    <  Aquifer[j].bottomElev
-    ||   Aquifer[j].upperMoisture     >  Aquifer[j].porosity 
+/* XXX: original code was :     ||   Aquifer[j].upperMoisture     >  Aquifer[j].porosity  */
+    ||   Aquifer[ 0 * j].upperMoisture     >  Aquifer[j].porosity 
     ||   Aquifer[j].upperMoisture     <  Aquifer[j].wiltingPoint )
         report_writeErrorMsg(ERR_AQUIFER_PARAMS, Aquifer[j].ID);
 
@@ -636,8 +637,7 @@ void  getFluxes(double theta, double lowerDepth)
 //  Purpose: computes water fluxes into/out of upper/lower GW zones.
 //
 {
-/* XXX: original code was :     double upperDepth; */
-    int upperDepth;
+    double upperDepth;
 
     // --- find upper zone depth
     lowerDepth = MAX(lowerDepth, 0.0);
