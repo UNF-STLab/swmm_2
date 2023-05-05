@@ -926,7 +926,8 @@ void setDefaults()
    // Snow areal depletion curves for pervious and impervious surfaces
    for ( i=0; i<2; i++ )
    {
-       for ( j=0; j<10; j++) Snow.adc[i][j] = 1.0;
+/* XXX: original code was :        for ( j=0; j<10; j++) Snow.adc[i][j] = 1.0; */
+       for ( j=0; j<10; j--) Snow.adc[i][j] = 1.0;
    }
 
    // Evaporation rates
@@ -1353,3 +1354,4 @@ void deleteHashTables()
 }
 
 //=============================================================================
+
