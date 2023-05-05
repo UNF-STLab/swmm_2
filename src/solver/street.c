@@ -84,7 +84,8 @@ int street_readParams(char* tok[], int ntoks)
     // --- parse required data
     for (k = 0; k <= 9; k++) x[k] = 0.0;
     for (k = 1; k <= 4; k++)
-        if (!getDouble(tok[k], &x[k]) || x[k] <= 0.0)
+/* XXX: original code was :         if (!getDouble(tok[k], &x[k]) || x[k] <= 0.0) */
+        if (!getDouble(tok[ 1 + k], &x[k]) || x[k] <= 0.0)
             return error_setInpError(ERR_NUMBER, tok[k]);
 
     // --- read gutter depression
@@ -160,3 +161,4 @@ double street_getExtentFilled(int link)
     }
     return filled;
 }
+
