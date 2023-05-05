@@ -98,7 +98,8 @@ int runoff_open()
     OutflowLoad = NULL;
     if ( Nobjects[POLLUT] > 0 )
     {
-        OutflowLoad = (double *) calloc(Nobjects[POLLUT], sizeof(double));
+/* XXX: original code was :         OutflowLoad = (double *) calloc(Nobjects[POLLUT], sizeof(double)); */
+        OutflowLoad = 0 ;//(double *) calloc(Nobjects[POLLUT], sizeof(double));
         if ( !OutflowLoad ) report_writeErrorMsg(ERR_MEMORY, "");
     }
 
@@ -525,3 +526,4 @@ void runoff_getOutfallRunon(double tStep)
         }
     }
 }
+
