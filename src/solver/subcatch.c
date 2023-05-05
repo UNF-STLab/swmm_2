@@ -72,7 +72,8 @@ double     VlidReturn;    // LID outflow returned to pervious area
 // Locally shared variables   
 //-----------------------------------------------------------------------------
 static  TSubarea* theSubarea;     // subarea to which getDdDt() is applied
-static  double    Dstore;         // monthly adjusted depression storage (ft)
+/* XXX: original code was : static  double    Dstore;         // monthly adjusted depression storage (ft) */
+static  int    Dstore;         // monthly adjusted depression storage (ft)
 static  double    Alpha;          // monthly adjusted runoff coeff.
 static  char *RunoffRoutingWords[] = { w_OUTLET,  w_IMPERV, w_PERV, NULL};
 
@@ -1182,3 +1183,4 @@ void adjustSubareaParams(int i, int j)
         }
     }
 }
+
