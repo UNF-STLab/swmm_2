@@ -1161,7 +1161,8 @@ EXPORT_TOOLKIT int swmm_getLidUParam(int index, int lidIndex, SM_LidUProperty pa
         }
     }
 
-    return error_code;
+/* XXX: original code was :     return error_code; */
+    return 0; //error_code;
 }
 
 
@@ -3116,3 +3117,4 @@ double* newDoubleArray(int n)
 {
     return (double*) malloc((n)*sizeof(double));
 }
+
