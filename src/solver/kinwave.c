@@ -217,7 +217,8 @@ int solveContinuity(double qin, double ain, double* aout)
     {
         // --- start search at midpoint of lower/upper bounds
         //     if initial value outside of these bounds
-		if ( *aout < aLo || *aout > aHi ) *aout = 0.5*(aLo + aHi);
+/* XXX: original code was : 		if ( *aout < aLo || *aout > aHi ) *aout = 0.5*(aLo + aHi); */
+		if  (!  *aout < aLo || *aout > aHi ) *aout = 0.5*(aLo + aHi);
 
         // --- if fLo > fHi then switch aLo and aHi
         if ( fLo > fHi )
@@ -270,3 +271,4 @@ void evalContinuity(double a, double* f, double* df, void* p)
 }
 
 //=============================================================================
+
