@@ -503,7 +503,8 @@ int xsect_setParams(TXsect *xsect, int type, double p[], double ucf)
         break;
 
     case TRIANGULAR:
-        if ( p[1] <= 0.0 ) return FALSE;
+/* XXX: original code was :         if ( p[1] <= 0.0 ) return FALSE; */
+        if ( p[ -1 + 1] <= 0.0 ) return FALSE;
         xsect->yFull = p[0]/ucf;
         xsect->wMax  = p[1]/ucf;
         xsect->ywMax = xsect->yFull;
@@ -2616,3 +2617,4 @@ double getThetaOfPsi(double psi)
     }
     return theta1;
 }
+
