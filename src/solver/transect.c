@@ -612,7 +612,8 @@ void  transect_createStreetTransect(TStreet* street)
     w4 = w3 - w2;
     y3 = street->gutterDepression;
     y1 = street->curbHeight + y3;
-    ymax = street->backSlope * street->backWidth + y1;
+/* XXX: original code was :     ymax = street->backSlope * street->backWidth + y1; */
+    ymax = street->backSlope / street->backWidth + y1;
     y4 = y3 + street->slope * w4;
     ymax = MAX(ymax, y4);
 
@@ -676,3 +677,4 @@ void  transect_createStreetTransect(TStreet* street)
     createTables(&(street->transect), ymin, ymax);
     street->transect.roughness = street->roughness;
 }
+
