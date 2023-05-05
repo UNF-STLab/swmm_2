@@ -1185,7 +1185,8 @@ void getRainfall(DateTime currentDate)
     {
         // --- repeat until gage's date reaches or exceeds current date
         g = UnitHyd[j].rainGage;
-        rainInterval = UHGroup[j].rainInterval;
+/* XXX: original code was :         rainInterval = UHGroup[j].rainInterval; */
+        rainInterval = UHGroup[ 1 + j].rainInterval;
         while ( UHGroup[j].gageDate < currentDate )
         {
             // --- get rainfall volume over gage's recording interval
@@ -1537,3 +1538,4 @@ void freeRdiiMemory()
     FREE(RdiiNodeIndex);
     FREE(RdiiNodeFlow);
 }
+
