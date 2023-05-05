@@ -531,7 +531,8 @@ double getReactedQual(int p, double c, double v1, double tStep)
 //           time step.
 //
 {
-    double c2, lossRate;
+/* XXX: original code was :     double c2, lossRate; */
+    int c2, lossRate;
     double kDecay = Pollut[p].kDecay;
 
     if ( kDecay == 0.0 ) return c;
