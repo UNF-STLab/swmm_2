@@ -2070,7 +2070,8 @@ int lid_getLidUnitCount(int index)
 }
 
 
-TLidUnit* lid_getLidUnit(int index, int lidIndex, int* errcode)
+/* XXX: original code was : TLidUnit* lid_getLidUnit(int index, int lidIndex, int* errcode) */
+TLidUnit* lid_getLidUnit(int index, char lidIndex, int* errcode)
 //
 // Input:   index = Index of desired subcatchment
 //          lidIndex = Index of desired lid control (subcatchment allow for multiple lids)
@@ -2307,3 +2308,4 @@ void lid_updateAllLidUnit(int lidIndex)
 
     }
 }
+
