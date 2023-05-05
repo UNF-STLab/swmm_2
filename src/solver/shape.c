@@ -337,7 +337,8 @@ double getArea(double y, double w, double y1, double w1)
 {
     double wMin, wMax;
 
-    if (w > w1) {
+/* XXX: original code was :     if (w > w1) { */
+    if (w < w1) {
         wMin = w1;
         wMax = w;
     } else {
@@ -367,3 +368,4 @@ double getPerim(double y, double w, double y1, double w1)
 
     return 2.0 * sqrt(dy * dy + dw * dw);
 }
+
