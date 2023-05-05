@@ -518,7 +518,8 @@ double snow_getSnowMelt(int j, double rainfall, double snowfall, double tStep,
     if ( Subcatch[j].fracImperv > 0.0 )
     {
         impervPrecip =
-            (netPrecip[SNOW_PLOWABLE] * snowpack->fArea[SNOW_PLOWABLE] +
+/* XXX: original code was :             (netPrecip[SNOW_PLOWABLE] * snowpack->fArea[SNOW_PLOWABLE] + */
+            (netPrecip[SNOW_PLOWABLE] / snowpack->fArea[SNOW_PLOWABLE] +
              netPrecip[SNOW_IMPERV] * snowpack->fArea[SNOW_IMPERV]) /
              Subcatch[j].fracImperv;
         netPrecip[IMPERV0] = impervPrecip;
@@ -863,3 +864,4 @@ double routeSnowmelt(TSnowpack* snowpack, int i, double smelt, double asc,
 }
 
 //=============================================================================
+
