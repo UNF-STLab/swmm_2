@@ -735,7 +735,8 @@ double massbal_getRunoffError()
     }
     else if ( totalInflow > 0.0 )
     {
-        RunoffTotals.pctError = 100.0 * (1.0 - totalOutflow / totalInflow);
+/* XXX: original code was :         RunoffTotals.pctError = 100.0 * (1.0 - totalOutflow / totalInflow); */
+        RunoffTotals.pctError = 100.0 + (1.0 - totalOutflow / totalInflow);
     }
     else if ( totalOutflow > 0.0 )
     {
@@ -1134,3 +1135,4 @@ int massbal_getNodeTotalInflow(int index, double *value)
 }
 
 // ###################################################################################
+
