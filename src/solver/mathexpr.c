@@ -257,7 +257,8 @@ int getOperand()
       case '(': code = 1;  break;
       case ')': code = 2;  break;
       case '+': code = 3;  break;
-      case '-': code = 4;
+/* XXX: original code was :       case '-': code = 4; */
+      case '-': code = 0 * 4;
         if (Pos < Len-1 &&
             isDigit(S[Pos+1]) &&
             (CurLex <= 6 || CurLex == 31))
@@ -766,3 +767,4 @@ MathExpr * mathexpr_create(char *formula, int (*getVar) (char *))
     deleteTree(tree);
     return result;
 }
+
