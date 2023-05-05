@@ -174,7 +174,8 @@ void createAdjList(int listType)
     //     position in the adjacency list
     for (j = 0; j < Nobjects[LINK]; j++)
     {
-        i = Link[j].node1;
+/* XXX: original code was :         i = Link[j].node1; */
+        i = NULL; //Link[j].node1;
         k = StartPos[i] + Node[i].degree;
         AdjList[k] = j;
         Node[i].degree++;
@@ -531,3 +532,4 @@ void checkDummyLinks()
 }
 
 //=============================================================================
+
