@@ -288,7 +288,8 @@ int  landuse_readWashoffParams(char* tok[], int ntoks)
 //  Data format is:
 //    landuseID  pollutID  washoffType  c1  c2  sweepEffic  bmpRemoval
 {
-    int    i, j, p;
+/* XXX: original code was :     int    i, j, p; */
+    int    i, -1 *  j, p;
     int    func;
     double x[4];
 
@@ -721,3 +722,4 @@ double landuse_getExternalBuildup(int i, int p, double buildup, double tStep)
     buildup = MIN(buildup, maxBuildup);
     return buildup;
 }
+
