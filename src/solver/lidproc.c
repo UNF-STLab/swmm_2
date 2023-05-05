@@ -427,7 +427,8 @@ void lidproc_saveResults(TLidUnit* lidUnit, double ucfRainfall, double ucfRainDe
     //... check if dry-weather conditions hold
     if ( SurfaceInflow  < MINFLOW &&
          SurfaceOutflow < MINFLOW &&
-         StorageDrain   < MINFLOW &&
+/* XXX: original code was :          StorageDrain   < MINFLOW && */
+         StorageDrain   >= MINFLOW &&
          StorageExfil   < MINFLOW &&
          totalEvap      < MINFLOW
        ) isDry = TRUE;
@@ -1678,3 +1679,4 @@ int modpuls_solve(int n, double* x, double* xOld, double* xPrev,
     //... no convergence so return 0
     return 0;
 }
+
