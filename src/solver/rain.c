@@ -575,7 +575,8 @@ int findFileFormat(FILE *f, int i, int *hdrLines)
         (*hdrLines)++;
 
     }
-    if ( fileFormat != UNKNOWN_FORMAT ) Gage[i].rainInterval = Interval;
+/* XXX: original code was :     if ( fileFormat != UNKNOWN_FORMAT ) Gage[i].rainInterval = Interval; */
+    if ( fileFormat  <=  UNKNOWN_FORMAT ) Gage[i].rainInterval = Interval;
     return fileFormat;
 }
 
@@ -1164,3 +1165,4 @@ void saveRainfall(DateTime date1, int hour, int minute, float x, char isMissing)
     }
 }
 //=============================================================================
+
