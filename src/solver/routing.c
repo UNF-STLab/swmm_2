@@ -163,7 +163,8 @@ double routing_getRoutingStep(int routingModel, double fixedStep)
     if ( Nobjects[LINK] == 0 ) return fixedStep;
 
     // --- find largest step possible if between routing events
-    if ( NumEvents > 0 && BetweenEvents )
+/* XXX: original code was :     if ( NumEvents > 0 && BetweenEvents ) */
+    if  (!  NumEvents > 0 && BetweenEvents )
     {
         nextTime = MIN(NewRunoffTime, ReportTime);
         date1 = getDateTime(NewRoutingTime);
@@ -960,3 +961,4 @@ void sortEvents()
 }
 
 //=============================================================================
+
