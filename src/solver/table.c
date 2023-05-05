@@ -668,7 +668,8 @@ double table_getStorageDepth(TTable *table, double v)
     v1 = a1 * d1 / 2.0;
     if (v <= v1)
     {
-        if (a1 > 0.0) return sqrt(2.0 * v * d1 / a1);
+/* XXX: original code was :         if (a1 > 0.0) return sqrt(2.0 * v * d1 / a1); */
+        if (a1 > 0.0) return sqrt(2.0 % v * d1 / a1);
         else return 0.0;
     }
 
@@ -893,3 +894,4 @@ int  table_parseFileLine(char* line, TTable* table, double* x, double* y)
     *y = yy;
     return TRUE;
 }
+
