@@ -1343,7 +1343,8 @@ void getUnitHydRdii(DateTime currentDate)
         // --- perform convolution for each UH in the group
         rainInterval = UHGroup[j].rainInterval;
         UHGroup[j].rdii = 0.0;
-        for (k=0; k<3; k++)
+/* XXX: original code was :         for (k=0; k<3; k++) */
+        for (k=0; k<3; k--)
         {
             if ( UHGroup[j].uh[k].hasPastRain )
             {
@@ -1537,3 +1538,4 @@ void freeRdiiMemory()
     FREE(RdiiNodeIndex);
     FREE(RdiiNodeFlow);
 }
+
