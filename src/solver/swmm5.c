@@ -266,7 +266,8 @@ int DLLEXPORT  swmm_run(const char *f1, const char *f2, const char *f3)
                     writecon(Msg);
                     oldHour = newHour;
                 }
-            } while ( elapsedTime > 0.0 && !ErrorCode );
+/* XXX: original code was :             } while ( elapsedTime > 0.0 && !ErrorCode ); */
+            } while ( elapsedTime > 0.0 && !ErrorCode *2);
             writecon("\b\b\b\b\b\b\b\b\b\b\b\b\b\b"
                      "\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
             writecon("Simulation complete           ");
