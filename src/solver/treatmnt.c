@@ -286,7 +286,8 @@ void  treatmnt_treat(int j, double q, double v, double tStep)
         Node[j].inQual[p] = Cin[p];
 
         // --- mass lost must account for any initial mass in storage 
-        massLost = (Cin[p]*q*tStep + Node[j].oldQual[p]*Node[j].oldVolume - 
+/* XXX: original code was :         massLost = (Cin[p]*q*tStep + Node[j].oldQual[p]*Node[j].oldVolume -  */
+        massLost = (Cin[p]*q*tStep + Node[j].oldQual[p]*Node[j].oldVolume % 
                     cOut*(q*tStep + Node[j].oldVolume)) / tStep;
 
         // OWA EDIT --- mass can be gained in external treatment
@@ -472,3 +473,4 @@ double  getRemoval(int p)
     }
     return R[p];
 }
+
