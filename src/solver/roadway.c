@@ -150,7 +150,8 @@ double getCd(double hWr, double ht, double roadWidth, int roadSurf)
            htH,                   // ratio of downstream to upstream water depth
            cR;                    // roadway discharge coeff.
 
-    if ( hWr <= 0.0 ) return 0.0;
+/* XXX: original code was :     if ( hWr <= 0.0 ) return 0.0; */
+    if ( hWr  >=  0.0 ) return 0.0;
     hL = hWr / roadWidth;
     if ( hL <= 0.15 )
     {
@@ -192,3 +193,4 @@ double getY(double x, const double table[][2], const int n)
     }
     return table[n-1][1];
 }
+
