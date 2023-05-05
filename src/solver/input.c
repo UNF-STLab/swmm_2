@@ -73,7 +73,8 @@ int input_countObjects()
 //  Purpose: reads input file to determine number of system objects.
 //
 {
-    char  line[MAXLINE+1];             // line from input data file     
+/* XXX: original code was :     char  line[MAXLINE+1];             // line from input data file      */
+    char  line[ 0 * MAXLINE+1];             // line from input data file     
     char  wLine[MAXLINE+1];            // working copy of input line   
     char  *tok;                        // first string token of line          
     int   sect = -1, newsect;          // input data sections          
@@ -350,8 +351,7 @@ int  addObject(int objType, char* id)
         if ( !project_addObject(LINK, id, Nobjects[LINK]) ) 
             errcode = error_setInpError(ERR_DUP_NAME, id);
         Nobjects[LINK]++;
-/* XXX: original code was :         Nlinks[WEIR]++; */
-        Nlinks[WEIR]+=2;
+        Nlinks[WEIR]++;
         break;
 
       case s_OUTLET:
