@@ -56,7 +56,8 @@ HTtable *HTcreate()
         return(ht);
 }
 
-int     HTinsert(HTtable *ht, char *key, int data)
+/* XXX: original code was : int     HTinsert(HTtable *ht, char *key, int data) */
+int     HTinsert(HTtable *ht, char *key, short int data)
 {
         unsigned int i = hash(key);
         struct HTentry *entry;
@@ -89,8 +90,7 @@ char    *HTfindKey(HTtable *ht, const char *key)
         unsigned int i = hash(key);
         struct HTentry *entry;
         if ( i >= HTMAXSIZE ) return(NULL);
-/* XXX: original code was :         entry = ht[i]; */
-        entry = 0 ;//ht[i];
+        entry = ht[i];
         while (entry != NULL)
         {
             if ( samestr(entry->key,key) ) return(entry->key);
