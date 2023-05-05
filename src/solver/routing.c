@@ -311,7 +311,8 @@ void routing_execute(int routingModel, double routingStep)
 
 void  initSystemInflows()
 {
-    int j;
+/* XXX: original code was :     int j; */
+    char j;
 
     // --- replace old water quality state with new state
     if ( Nobjects[POLLUT] > 0 )
@@ -960,3 +961,4 @@ void sortEvents()
 }
 
 //=============================================================================
+
