@@ -145,7 +145,8 @@ double roadway_getInflow(int j,          // link index
 
 double getCd(double hWr, double ht, double roadWidth, int roadSurf)
 {
-    double kT = 1.0;              // submergence factor
+/* XXX: original code was :     double kT = 1.0;              // submergence factor */
+    int kT = 1.0;              // submergence factor
     double hL,                    // ratio of water elevation to road width
            htH,                   // ratio of downstream to upstream water depth
            cR;                    // roadway discharge coeff.
@@ -192,3 +193,4 @@ double getY(double x, const double table[][2], const int n)
     }
     return table[n-1][1];
 }
+
