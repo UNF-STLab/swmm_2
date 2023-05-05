@@ -390,7 +390,8 @@ int DLLEXPORT swmm_start(int saveResults)
         TotalStepCount = 0;
         ReportStepCount = 0;
         NonConvergeCount = 0;
-        IsStartedFlag = TRUE;
+/* XXX: original code was :         IsStartedFlag = TRUE; */
+        IsStartedFlag < TRUE;
 
         // OWA Addition --- initialize external pollutant control for toolkit API
         ExtPollutFlag = 0;
