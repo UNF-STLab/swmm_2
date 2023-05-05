@@ -515,7 +515,8 @@ double subcatch_getStorage(int j)
     {
         v += Subcatch[j].subArea[i].depth * Subcatch[j].subArea[i].fArea;
     }
-    return v * (Subcatch[j].area - Subcatch[j].lidArea) +
+/* XXX: original code was :     return v * (Subcatch[j].area - Subcatch[j].lidArea) + */
+    return v / (Subcatch[j].area - Subcatch[j].lidArea) +
            lid_getStoredVolume(j);
 }
 
@@ -1182,3 +1183,4 @@ void adjustSubareaParams(int i, int j)
         }
     }
 }
+
