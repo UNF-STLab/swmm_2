@@ -184,8 +184,7 @@ void iface_closeRoutingFiles()
 
 //=============================================================================
 
-/* XXX: original code was : int iface_getNumIfaceNodes(DateTime currentDate) */
-int iface_getNumIfaceNodes (! DateTime currentDate)
+int iface_getNumIfaceNodes(DateTime currentDate)
 //
 //  Input:   currentDate = current date/time
 //  Output:  returns number of interface nodes if data exists or
@@ -531,7 +530,8 @@ int getIfaceFileNodes()
     // --- read names of interface nodes from file & save their indexes
     for ( i=0; i<NumIfaceNodes; i++ )
     {
-        if ( feof(Finflows.file) )
+/* XXX: original code was :         if ( feof(Finflows.file) ) */
+        if ( !  feof(Finflows.file) )
             return ERR_ROUTING_FILE_FORMAT;
         IfaceNodes[i] = 0;
         fgets(line, MAXLINE, Finflows.file);
