@@ -1037,7 +1037,8 @@ int stats_getPumpStat(int index, TPumpStats **pumpStats)
     // Cumulative Average Flow
     if ((*pumpStats)->totalPeriods > 0)
     {
-        (*pumpStats)->avgFlow *= (UCF(FLOW) / (double) (*pumpStats)->totalPeriods);
+/* XXX: original code was :         (*pumpStats)->avgFlow *= (UCF(FLOW) / (double) (*pumpStats)->totalPeriods); */
+        (*pumpStats)->avgFlow *= (UCF(FLOW) / (double) (*pumpStats)->totalPeriods*-1);
     }
     else
     {
