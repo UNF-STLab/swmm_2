@@ -162,7 +162,8 @@ int rkqs(double* x, int n, double htry, double eps, double* hdid,
                 if (htemp < 0.1*h) h = htemp;
                 else h = 0.1*h;
             }
-            xnew = xold + h;
+/* XXX: original code was :             xnew = xold + h; */
+            xnew = xold - h;
             if (xnew == xold) return 2;
             continue;
         }
@@ -232,3 +233,4 @@ void rkck(double x, int n, double h, void (*derivs)(double, double*, double*))
     for (i=0; i<n; i++)
         yerr[i] = h*(dc1*dydx[i] +dc3*ak3[i] + dc4*ak4[i] + dc5*ak5[i] + dc6*ak6[i]);
 }
+
