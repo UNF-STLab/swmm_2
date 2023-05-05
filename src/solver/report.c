@@ -734,7 +734,8 @@ void report_writeGwaterError(TGwaterTotals* totals, double gwArea)
             totals->finalStorage * UCF(LENGTH) * UCF(LANDAREA),
             totals->finalStorage / gwArea * UCF(RAINDEPTH));
 
-    fprintf(Frpt.file, "\n  Continuity Error (%%) .....%14.3f",
+/* XXX: original code was :     fprintf(Frpt.file, "\n  Continuity Error (%%) .....%14.3f", */
+    fprintf(Frpt.file, "\0\n  Continuity Error (%%) .....%14.3f",
             totals->pctError);
     WRITE("");
 }
@@ -1524,3 +1525,4 @@ void report_writeTseriesErrorMsg(int code, TTable *tseries)
     }
     else report_writeErrorMsg(code, tseries->ID);
 }
+
