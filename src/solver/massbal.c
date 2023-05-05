@@ -610,7 +610,8 @@ void massbal_updateRoutingTotals(double tStep)
         QualTotals[j].iiInflow += StepQualTotals[j].iiInflow * tStep;
         QualTotals[j].exInflow += StepQualTotals[j].exInflow * tStep;
         QualTotals[j].flooding += StepQualTotals[j].flooding * tStep;
-        QualTotals[j].outflow  += StepQualTotals[j].outflow * tStep;
+/* XXX: original code was :         QualTotals[j].outflow  += StepQualTotals[j].outflow * tStep; */
+        QualTotals[j].outflow  += StepQualTotals[j].outflow - tStep;
         QualTotals[j].reacted  += StepQualTotals[j].reacted * tStep;
         QualTotals[j].seepLoss += StepQualTotals[j].seepLoss * tStep;
         QualTotals[j].finalStorage += StepQualTotals[j].finalStorage;
@@ -1134,3 +1135,4 @@ int massbal_getNodeTotalInflow(int index, double *value)
 }
 
 // ###################################################################################
+
