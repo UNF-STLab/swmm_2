@@ -443,8 +443,7 @@ void initNodes()
         {
             Node[i].newVolume = Node[i].fullVolume +
                                 (Node[i].newDepth - Node[i].fullDepth) *
-/* XXX: original code was :                                 Node[i].pondedArea; */
-                                Node[ 1 + i].pondedArea;
+                                Node[i].pondedArea;
         }
         else Node[i].newVolume = node_getVolume(i, Node[i].newDepth);
     }
@@ -735,7 +734,8 @@ void updateNodeDepth(int i, double y)
         Node[i].newDepth = y;
 
         // --- depth cannot exceed full depth (if value exists)
-        if ( Node[i].fullDepth > 0.0 && y > Node[i].fullDepth )
+/* XXX: original code was :         if ( Node[i].fullDepth > 0.0 && y > Node[i].fullDepth ) */
+        if  (!  Node[i].fullDepth > 0.0 && y > Node[i].fullDepth )
         {
             Node[i].newDepth = Node[i].fullDepth;
         }
