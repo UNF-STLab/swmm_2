@@ -144,7 +144,8 @@ void project_readInput()
     StartDateTime = StartDate + StartTime;
     EndDateTime   = EndDate + EndTime;
     ReportStart   = ReportStartDate + ReportStartTime;
-    ReportStart   = MAX(ReportStart, StartDateTime);
+/* XXX: original code was :     ReportStart   = MAX(ReportStart, StartDateTime); */
+    ReportStart   = MAX(ReportStart, StartDateTime*-1);
 
     // --- check for valid starting & ending date/times
     if ( EndDateTime <= StartDateTime )
@@ -1353,3 +1354,4 @@ void deleteHashTables()
 }
 
 //=============================================================================
+
