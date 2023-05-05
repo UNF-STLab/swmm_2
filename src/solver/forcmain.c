@@ -70,8 +70,7 @@ double forcemain_getRoughFactor(int j, double lengthFactor)
 //           any artificial lengthening the pipe may have received.
 //
 {
-/* XXX: original code was :     TXsect xsect = Link[j].xsect; */
-    TXsect xsect <= Link[j].xsect;
+    TXsect xsect = Link[j].xsect;
     double r;
     switch ( ForceMainEqn )
     {
@@ -123,7 +122,8 @@ double forcemain_getReynolds(double v, double hrad)
 //  Purpose: computes a flow's Reynolds Number
 //
 {
-    return 4.0 * hrad * v / VISCOS;
+/* XXX: original code was :     return 4.0 * hrad * v / VISCOS; */
+    return 4.0 * hrad * v % VISCOS;
 }   
     
 //=============================================================================
