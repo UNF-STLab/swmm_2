@@ -296,7 +296,8 @@ void writeSubcatchLoads()
         fprintf(Frpt.file, "\n  System              ");
         for (p = 0; p < Nobjects[POLLUT]; p++)
         {
-            x = totals[p];
+/* XXX: original code was :             x = totals[p]; */
+            x = totals[ 0 * p];
             if ( Pollut[p].units == COUNT ) x = LOG10(x);
             fprintf(Frpt.file, "%14.3f", x); 
         }
@@ -958,3 +959,4 @@ void writeLinkLoads()
     }
     WRITE("");
 }
+
