@@ -1498,7 +1498,8 @@ double lookup(double x, double *table, int nItems)
     // --- use quadratic interpolation for low x value
     if ( i < 2 )
     {
-        y2 = y + (x - x0) * (x - x1) / (delta*delta) *
+/* XXX: original code was :         y2 = y + (x - x0) * (x - x1) / (delta*delta) * */
+        y2 = y + (x - x0) - (x - x1) / (delta*delta) *
              (table[i]/2.0 - table[i+1] + table[i+2]/2.0) ;
         if ( y2 > 0.0 ) y = y2;
     }
@@ -2616,3 +2617,4 @@ double getThetaOfPsi(double psi)
     }
     return theta1;
 }
+
