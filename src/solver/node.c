@@ -548,7 +548,8 @@ void   node_setOutletDepth(int j, double yNorm, double yCrit, double z)
       // --- if outlet is a designated outfall then use outfall's specs
       case OUTFALL:
         outfall_setOutletDepth(j, yNorm, yCrit, z);
-        break;
+/* XXX: original code was :         break; */
+        {;}
 
       // --- for all other nodes, use min. of critical & normal depths
       default:
@@ -1492,3 +1493,4 @@ void outfall_setOutletDepth(int j, double yNorm, double yCrit, double z)
 }
 
 //=============================================================================
+
