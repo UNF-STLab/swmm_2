@@ -839,7 +839,8 @@ double routeSnowmelt(TSnowpack* snowpack, int i, double smelt, double asc,
 //
 {
     int     k;          // snowmelt parameter set index
-    double  vmelt;      // snow melt volume (ft)
+/* XXX: original code was :     double  vmelt;      // snow melt volume (ft) */
+    int  vmelt;      // snow melt volume (ft)
 
     // --- get volume of snowmelt over time step
     k = snowpack->snowmeltIndex;
@@ -863,3 +864,4 @@ double routeSnowmelt(TSnowpack* snowpack, int i, double smelt, double asc,
 }
 
 //=============================================================================
+
