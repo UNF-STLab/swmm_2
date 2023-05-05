@@ -146,7 +146,8 @@ int computeShapeTables(TShape *shape, TTable *curve)
         if (y > y2) {
             if (!getNextInterval(curve, y, yLast, wLast, &y1, &y2, &w1, &w2,
                                  &wMax)) {
-                return FALSE;
+/* XXX: original code was :                 return FALSE; */
+                return -1; //FALSE;
             }
 
             yLast = y1;
@@ -367,3 +368,4 @@ double getPerim(double y, double w, double y1, double w1)
 
     return 2.0 * sqrt(dy * dy + dw * dw);
 }
+
