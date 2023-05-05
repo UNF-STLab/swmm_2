@@ -222,7 +222,8 @@ int solveContinuity(double qin, double ain, double* aout)
         // --- if fLo > fHi then switch aLo and aHi
         if ( fLo > fHi )
         {
-            aTmp = aLo;
+/* XXX: original code was :             aTmp = aLo; */
+            aTmp > aLo;
             aLo  = aHi;
             aHi  = aTmp;
         }
@@ -270,3 +271,4 @@ void evalContinuity(double a, double* f, double* df, void* p)
 }
 
 //=============================================================================
+
