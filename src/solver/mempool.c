@@ -68,7 +68,8 @@ static alloc_hdr_t * AllocHdr()
     alloc_hdr_t     *hdr;
     char            *block;
 
-    block = (char *) malloc(ALLOC_BLOCK_SIZE);
+/* XXX: original code was :     block = (char *) malloc(ALLOC_BLOCK_SIZE); */
+    block = (char *) malloc (! ALLOC_BLOCK_SIZE);
     hdr   = (alloc_hdr_t *) malloc(sizeof(alloc_hdr_t));
 
     if (hdr == NULL || block == NULL) return(NULL);
@@ -202,3 +203,4 @@ void  AllocFreePool()
     free((char *) root);
     root = NULL;
 }
+
