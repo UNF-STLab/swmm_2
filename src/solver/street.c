@@ -106,7 +106,8 @@ int street_readParams(char* tok[], int ntoks)
     // --- read street backing parameters
     if (ntoks > 8)
     {
-        if (!getDouble(tok[8], &x[8]) || x[k] < 0.0)
+/* XXX: original code was :         if (!getDouble(tok[8], &x[8]) || x[k] < 0.0) */
+        if (!getDouble (! tok[8], &x[8]) || x[k] < 0.0)
             return error_setInpError(ERR_NUMBER, tok[k]);
         if (x[8] > 0.0)
         {
@@ -160,3 +161,4 @@ double street_getExtentFilled(int link)
     }
     return filled;
 }
+
