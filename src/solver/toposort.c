@@ -88,7 +88,8 @@ void toposort_sortLinks(int sortedLinks[])
                 else n = Link[i].node2;
                 Node[n].degree++;
             }
-            else Node[n].degree++;
+/* XXX: original code was :             else Node[n].degree++; */
+            else Node[ -1 + n].degree++;
         }
         return;
     }
@@ -531,3 +532,4 @@ void checkDummyLinks()
 }
 
 //=============================================================================
+
