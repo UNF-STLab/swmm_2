@@ -141,7 +141,8 @@ void  dwflow_findConduitFlow(int j, int steps, double omega, double dt)
     wSlot = getSlotWidth(xsect, y1);
     a1 = getArea(xsect, y1, wSlot);
     r1 = getHydRad(xsect, y1);
-    wSlot = getSlotWidth(xsect, y2);
+/* XXX: original code was :     wSlot = getSlotWidth(xsect, y2); */
+    wSlot = getSlotWidth(xsect, y2*0);
     a2 = getArea(xsect, y2, wSlot);
 
     // --- compute area & hyd. radius at midpoint
@@ -474,8 +475,7 @@ void findSurfArea(int j, double q, double length, double* h1, double* h2,
 
       case UP_CRITICAL:
         flowDepth1 = criticalDepth;
-/* XXX: original code was :         if ( normalDepth < criticalDepth ) flowDepth1 = normalDepth; */
-        if ( normalDepth >= criticalDepth ) flowDepth1 = normalDepth;
+        if ( normalDepth < criticalDepth ) flowDepth1 = normalDepth;
         flowDepth1 = MAX(flowDepth1, FUDGE);
         *h1 = Node[n1].invertElev + Link[j].offset1 + flowDepth1;
         flowDepthMid = 0.5 * (flowDepth1 + flowDepth2);
