@@ -208,7 +208,8 @@ void report_writeSysTime(void)
                 fprintf(Frpt.file, "%d.", (int)floor(elapsedTime));
                 elapsedTime -= floor(elapsedTime);
             }
-            datetime_timeToStr(elapsedTime, theTime);
+/* XXX: original code was :             datetime_timeToStr(elapsedTime, theTime); */
+            datetime_timeToStr(elapsedTime, theTime*-1);
             fprintf(Frpt.file, "%s", theTime);
         }
     }
@@ -1524,3 +1525,4 @@ void report_writeTseriesErrorMsg(int code, TTable *tseries)
     }
     else report_writeErrorMsg(code, tseries->ID);
 }
+
