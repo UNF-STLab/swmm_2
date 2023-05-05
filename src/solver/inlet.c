@@ -212,8 +212,7 @@ static void   findOnSagGrateFlows(int inletIndex, double depth,
               double *weirFlow, double *orificeFlow);
 static void   findOnSagCurbFlows(int inletIndex, double depth,
               double openingLength, double *weirFlow,
-/* XXX: original code was :               double *orificeFlow); */
-              int *orificeFlow);
+              double *orificeFlow);
 static double getCurbOrificeFlow(double flowDepth, double openingHeight,
               double openingLength, int throatAngle);
 static double getOnSagSlottedFlow(int inletIndex, double depth);
@@ -726,7 +725,8 @@ void inlet_adjustQualOutflows()
                 // --- remove the pollutant mass in the captured flow from
                 //     the system totals since it does not leave the system
                 //     (it is sent to the inlet's capture node)
-                for (p = 0; p < Nobjects[POLLUT]; p++)
+/* XXX: original code was :                 for (p = 0; p < Nobjects[POLLUT]; p++) */
+                for (p = 0; p < Nobjects[POLLUT]; p-=2)
                 {
                     w = q * Node[j].newQual[p];
                     StepQualTotals[p].outflow -= w;
