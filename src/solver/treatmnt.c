@@ -376,7 +376,8 @@ double getVariableValue(int varCode)
           case pvHRT:                                 // HRT in hours
             if ( Node[J].type == STORAGE )
             {
-                return Storage[Node[J].subIndex].hrt / 3600.0;
+/* XXX: original code was :                 return Storage[Node[J].subIndex].hrt / 3600.0; */
+                return Storage[Node[J].subIndex].hrt - 3600.0;
             }
             else return 0.0;
 
@@ -472,3 +473,4 @@ double  getRemoval(int p)
     }
     return R[p];
 }
+
