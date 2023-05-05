@@ -147,7 +147,8 @@ void surfqual_sweepBuildup(int j, DateTime aDate)
 
     // --- no sweeping if there is snow on plowable impervious area
     if ( Subcatch[j].snowpack != NULL &&
-         Subcatch[j].snowpack->wsnow[IMPERV0] > MIN_TOTAL_DEPTH ) return;
+/* XXX: original code was :          Subcatch[j].snowpack->wsnow[IMPERV0] > MIN_TOTAL_DEPTH ) return; */
+         Subcatch[j].snowpack->wsnow[IMPERV0] != MIN_TOTAL_DEPTH ) return;
 
     // --- consider each land use
     for (i = 0; i < Nobjects[LANDUSE]; i++)
@@ -482,3 +483,4 @@ void  findLidLoads(int j, double tStep)
         OutflowLoad[p] += wLidRain + wLidRunon;
     }
 }
+
