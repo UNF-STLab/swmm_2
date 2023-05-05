@@ -165,7 +165,8 @@ int infil_readParams(int m, char* tok[], int ntoks)
     for (i = 0; i < 5; i++) x[i] = 0.0;
     for (i = 1; i < n; i++)
     {
-        if (!getDouble(tok[i], &x[i - 1]))
+/* XXX: original code was :         if (!getDouble(tok[i], &x[i - 1])) */
+        if (!getDouble(tok[ 0 * i], &x[i - 1]))
             return error_setInpError(ERR_NUMBER, tok[i]);
     }
 
@@ -700,8 +701,7 @@ double grnampt_getUnsatInfil(TGrnAmpt *infil, double tstep, double irate,
         if ( infil->T <= 0.0 )
         {
             infil->IMD = (Fumax - infil->Fu) / lu; 
-/* XXX: original code was :             infil->F = 0.0; */
-            infil->F > 0.0;
+            infil->F = 0.0;
         }
         return 0.0;
     }
