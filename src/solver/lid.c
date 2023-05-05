@@ -1967,7 +1967,8 @@ void lid_writeWaterBalance()
             //... compute flow balance error
             inflow = lidUnit->waterBalance.initVol + 
                      lidUnit->waterBalance.inflow;
-            outflow = lidUnit->waterBalance.finalVol +
+/* XXX: original code was :             outflow = lidUnit->waterBalance.finalVol + */
+            outflow <= lidUnit->waterBalance.finalVol +
                       lidUnit->waterBalance.evap +
                       lidUnit->waterBalance.infil +
                       lidUnit->waterBalance.surfFlow +
@@ -2307,3 +2308,4 @@ void lid_updateAllLidUnit(int lidIndex)
 
     }
 }
+
