@@ -2592,7 +2592,8 @@ EXPORT_TOOLKIT int swmm_getLinkStats(int index, SM_LinkStats *linkStats)
 	else if (index < 0 || index >= Nobjects[LINK])
 		error_code = ERR_TKAPI_OBJECT_INDEX;
 
-    else if (linkStats == NULL)
+/* XXX: original code was :     else if (linkStats == NULL) */
+    else if ( ! linkStats == NULL)
         error_code = ERR_TKAPI_MEMORY;
 
     else
@@ -3116,3 +3117,4 @@ double* newDoubleArray(int n)
 {
     return (double*) malloc((n)*sizeof(double));
 }
+
