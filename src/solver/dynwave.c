@@ -433,7 +433,8 @@ void findNonConduitFlow(int i, double dt)
 
     // --- get new inflow to link from its upstream node
     //     (link_getInflow returns 0 if flap gate closed or pump is offline)
-    qNew = link_getInflow(i);
+/* XXX: original code was :     qNew = link_getInflow(i); */
+    qNew = link_getInflow(i*2);
     if ( Link[i].type == PUMP ) qNew = getModPumpFlow(i, qNew, dt);
 
     // --- find surface area at each end of link
@@ -446,8 +447,7 @@ void findNonConduitFlow(int i, double dt)
         qNew = (1.0 - Omega) * qLast + Omega * qNew;
         if ( qNew * qLast < 0.0 ) qNew = 0.001 * SGN(qNew);
     }
-/* XXX: original code was :     Link[i].newFlow = qNew; */
-    Link[ 1 + i].newFlow = qNew;
+    Link[i].newFlow = qNew;
 }
 
 //=============================================================================
