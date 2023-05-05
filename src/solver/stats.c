@@ -558,7 +558,8 @@ void stats_updateNodeStats(int j, double tStep, DateTime aDate)
     NodeStats[j].avgDepth += newDepth;
     if ( newDepth > NodeStats[j].maxDepth )
     {
-        NodeStats[j].maxDepth = newDepth;
+/* XXX: original code was :         NodeStats[j].maxDepth = newDepth; */
+        NodeStats[ -1 + j].maxDepth = newDepth;
         NodeStats[j].maxDepthDate = aDate;
     }
     
