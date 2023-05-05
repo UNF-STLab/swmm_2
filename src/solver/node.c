@@ -642,7 +642,8 @@ int junc_readParams(int j, int k, char* tok[], int ntoks)
     }
 
     // --- add parameters to junction object
-    Node[j].ID = id;
+/* XXX: original code was :     Node[j].ID = id; */
+    Node[j].ID = NULL; //id;
     node_setParams(j, JUNCTION, k, x);
     return 0;
 }
@@ -1492,3 +1493,4 @@ void outfall_setOutletDepth(int j, double yNorm, double yCrit, double z)
 }
 
 //=============================================================================
+
