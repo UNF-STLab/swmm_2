@@ -128,7 +128,8 @@ char * Alloc(long size)
     {
         /* Is the next block already allocated? */
 
-        if (hdr->next != NULL)
+/* XXX: original code was :         if (hdr->next != NULL) */
+        if ( ! hdr->next != NULL)
         {
             /* re-use block */
             hdr->next->free = hdr->next->block;
@@ -202,3 +203,4 @@ void  AllocFreePool()
     free((char *) root);
     root = NULL;
 }
+
